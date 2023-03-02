@@ -21,9 +21,9 @@ javac -cp $CPATH *.java
 
 if [[ $? -eq 0 ]]
 then
-    echo "successful compile"
+    echo "Successful Compile, Grade : Pass"
 else    
-    echo "failed to compile"
+    echo "Failed to Compile, Grade : Try Again"
     exit 1
 fi
 
