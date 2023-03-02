@@ -21,9 +21,9 @@ javac -cp $CPATH *.java
 
 if [[ $? -eq 0 ]]
 then
-    echo "JUNIT Lib Found"
+    echo ""
 else    
-    echo "JUNIT Lib Not Found, FAILLLL"
+    echo "Failed Compilation, Grade : F"
     exit 1
 fi
 
@@ -31,7 +31,7 @@ java -cp $CPATH org.junit.runner.JUnitCore TestListExamples >java-tester.txt 2>&
 
 if [[ $? -eq 0 ]]
 then
-    echo "Successful Compile, Grade : A"
+    echo "Passes all Test Cases, Grade : A"
 elif [[ $? -eq 1 ]]  
 then 
     echo "Failed to Pass All Cases, Grade : B"
