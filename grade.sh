@@ -21,10 +21,21 @@ javac -cp $CPATH *.java
 
 if [[ $? -eq 0 ]]
 then
-    echo "Successful Compile, Grade : Pass"
+    echo "JUNIT Lib Found"
 else    
-    echo "Failed to Compile, Grade : Try Again"
+    echo "JUNIT Lib Not Found, FAILLLL"
     exit 1
 fi
 
-java -cp $CPATH org.junit.runner.JUnitCore TestListExamples
+java -cp $CPATH org.junit.runner.JUnitCore TestListExamples >java-tester.txt 2>&1
+
+if [[ $? -eq 0 ]]
+then
+    echo "Successful Compile, Grade : A"
+elif [[ $? -eq 1 ]]  
+then 
+    echo "Failed to Pass All Cases, Grade : B"
+else 
+    echo "Failed All Test Cases, Grade : F"
+    exit
+fi
